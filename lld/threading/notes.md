@@ -1,0 +1,2 @@
+1. In Python multiprocessing, **pickling** is serializing a Python object (like data or a function) into a byte stream so it can be sent between processes, while **unpickling** is the reverse: converting that byte stream back into a usable Python object in the receiving process. 
+    a. Since processes don't share memory, this serialization/deserialization (marshalling) via the pickle module is how data, arguments
