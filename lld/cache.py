@@ -28,13 +28,13 @@ class TTLCache:
     def get(self, key):
         key = self._make_key(tenant_id, model, prompt)
         with self.lock:
-            item = self.store.get(key)
+            item = self.cache.get(key)
             if item is None:
                 return None
             
             value, expiry = self.cache[key]
             if time.time() > expiry:
-                del self.store[key]
+                del self.cache[key]
                 return -1
             
             self.cache.move_to_end(key)
